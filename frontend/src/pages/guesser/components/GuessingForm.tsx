@@ -7,6 +7,20 @@ import { FormResult } from "./FormResult";
 import { useDeriveEmail } from "../api/deriveEmail";
 
 
+const nameValidator = (value: string) => {
+    const trimmedValue = value.trim();
+    const words = trimmedValue.split(/\s+/);
+    const hasTwoWords = words.length >= 2 && words.every(word => word.length > 0);
+    return !trimmedValue || !hasTwoWords;
+};
+
+const domainValidator = (value: string) => {
+    const trimmedValue = value.trim();
+    const parts = trimmedValue.split('.');
+    const isValidDomain = parts.length > 1 && parts.every(part => part.length > 0);
+    return !trimmedValue || !isValidDomain;
+};
+
 
 export function GuessingForm() {
     const theme = useMantineTheme();
@@ -17,8 +31,8 @@ export function GuessingForm() {
             domain: "",
         },
         validate: {
-            name: (value) => value.trim().length < 1,
-            domain: (value) => value.trim().length < 1,
+            name: (value) => nameValidator(value) ? 'Please enter your full name ex. (Ahmad Beltagy)' : null,
+            domain: (value) => domainValidator(value) ? 'Please enter correct domain ex. (example.com' : null,
         },
     });
 
