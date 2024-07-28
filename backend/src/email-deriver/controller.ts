@@ -2,17 +2,14 @@ import { Request, Response } from 'express';
 import EmailDeriverService from './service/email-deriver.service';
 import { isValidRequest } from './utils';
 
-
 class EmailDeriverController {
   private readonly service: EmailDeriverService;
 
-
-  constructor() {
-    this.service = new EmailDeriverService();
+  constructor(service: EmailDeriverService) {
+    this.service = service;
   }
 
   deriveEmail = async (req: Request, res: Response) => {
-    //request Validation
     const { name: fullName, domain } = req.body;
 
     if (!isValidRequest(fullName, domain)) {

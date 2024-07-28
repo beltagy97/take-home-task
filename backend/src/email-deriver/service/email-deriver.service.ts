@@ -4,8 +4,8 @@ import { generateEmailFirstNameInitialLastNameFormat, generateEmailFullNameForma
 class EmailDeriverService {
   private readonly repository: EmailDeriverRepository;
   
-  constructor() {
-    this.repository = new EmailDeriverRepository();
+  constructor(repository: EmailDeriverRepository) {
+    this.repository = repository;
   }
 
   async getEmail(fullName: string, domain: string): Promise<string> {

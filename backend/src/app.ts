@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors';
 import dotenv from "dotenv";
-import { default as deriveEmailRouter } from './emailDeriver/router';
+import { default as deriveEmailRouter } from './email-deriver/router';
 
 dotenv.config();
 
