@@ -1,4 +1,4 @@
-import { Box, Center, Grid, Loader, Text, useMantineTheme } from "@mantine/core";
+import { Alert, Box, Center, Grid, Loader, Text, useMantineTheme } from "@mantine/core";
 
 type Props = {
     name: string | undefined;
@@ -11,16 +11,13 @@ export function FormResult({ name, email, isPending, error }: Props) {
     const theme = useMantineTheme();
 
     if (error) {
-        return (<Box p={'md'} style={{
-            borderWidth: '2px',
-            borderStyle: 'solid',
-            borderColor: theme.colors.cyan[8],
-            borderRadius: '10px',
-        }}>
-            <Center>
-                <Text c={theme.colors.red[5]} > Error occured while fetching the data! Please contact the admin</Text>
-            </Center>
-        </Box>);
+        return (
+            <Alert variant="light" color="red">
+                <Center>
+                <Text fw={400}>Error occured while fetching the data! Please contact the admin</Text>
+                </Center>
+            </Alert>
+            );
     }
 
     if (isPending) {
