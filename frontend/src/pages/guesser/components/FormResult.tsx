@@ -14,7 +14,7 @@ export function FormResult({ name, email, isPending, error }: Props) {
         return (
             <Alert variant="light" color="red">
                 <Center>
-                <Text fw={400}>Error occured while fetching the data! Please contact the admin</Text>
+                <Text fw={500} ff={"monospace"}>Error occured while fetching the data! Please contact the admin</Text>
                 </Center>
             </Alert>
             );
