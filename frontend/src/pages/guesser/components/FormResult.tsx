@@ -32,7 +32,7 @@ export function FormResult({ name, email, isPending, error }: Props) {
             <Alert variant="light" color="cyan">
                 <Center>
                     <Text fw={500} ff={"monospace"}>{name}'s email could not be derived!  Please try another domain</Text>
-                    
+
                 </Center>
             </Alert>
         )
@@ -49,9 +49,10 @@ export function FormResult({ name, email, isPending, error }: Props) {
                 <Grid.Col span={6}>
                     <Center>
                         <Text
-                            size="lg"
+                            size="md"
                             fw={700}
                             variant="gradient"
+                            style={{ wordBreak: 'break-word' }}
                             gradient={{ from: 'blue', to: 'lime', deg: 90 }}>
                             You can reach out to {name} on ....
                         </Text>
@@ -60,9 +61,10 @@ export function FormResult({ name, email, isPending, error }: Props) {
                 <Grid.Col span={6}>
                     <Center>
                         <Text
-                            size="lg"
+                            size="md"
                             fw={700}
                             variant="gradient"
+                            style={{ wordBreak: 'break-word' }}
                             gradient={{ from: 'green', to: 'gray', deg: 90 }}>
                             {email}
                         </Text>
