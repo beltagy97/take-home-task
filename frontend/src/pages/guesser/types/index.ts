@@ -5,5 +5,5 @@ export type FormDataType = {
 
 export type DeriveEmailResponse = {
     name: string;
-    email: string;
+    email?: string;
 }

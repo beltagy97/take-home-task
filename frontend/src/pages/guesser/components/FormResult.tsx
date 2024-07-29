@@ -2,7 +2,7 @@ import { Alert, Box, Center, Grid, Loader, Text, useMantineTheme } from "@mantin
 
 type Props = {
     name: string | undefined;
-    email: string | undefined;
+    email?: string;
     isPending: boolean;
     error: Error | null;
 }
@@ -14,17 +14,29 @@ export function FormResult({ name, email, isPending, error }: Props) {
         return (
             <Alert variant="light" color="red">
                 <Center>
-                <Text fw={500} ff={"monospace"}>Error occured while fetching the data! Please contact the admin</Text>
+                    <Text fw={500} ff={"monospace"}>Error occured while fetching the data! Please contact the admin</Text>
                 </Center>
             </Alert>
-            );
+        );
     }
 
     if (isPending) {
         return <Center> <Loader color="blue" type="dots" /> </Center>;
     }
 
-    if (!name || !email) return <></>;
+    if (!name && !email) return <></>;
+
+    if (!email) {
+        // fallback logic
+        return (
+            <Alert variant="light" color="cyan">
+                <Center>
+                    <Text fw={500} ff={"monospace"}>{name}'s email could not be derived!  Please try another domain</Text>
+                    
+                </Center>
+            </Alert>
+        )
+    }
 
     return (
         <Box p={'md'} style={{

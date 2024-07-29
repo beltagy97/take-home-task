@@ -38,7 +38,7 @@ export function GuessingForm() {
 
     const handleSubmit = async (values: FormDataType, event: React.FormEvent<HTMLFormElement> | undefined) => {
         event?.preventDefault();
-        mutateAsync({ name: values.name, domain: values.domain });
+        mutateAsync({ name: values.name.trim(), domain: values.domain.trim() });
     };
 
     return (
