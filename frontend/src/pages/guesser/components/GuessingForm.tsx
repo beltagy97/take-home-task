@@ -51,7 +51,7 @@ export function GuessingForm() {
                     borderRadius: '20px',
                 }}>
                     <FormHeader heading="Guess my email?!"
-                        subHeading='Please enter full name and domain so we can start derive the email!' />
+                        subHeading='Please enter full name and domain so we can start derive the email based on our data' />
                     <FormBody form={form} />
                     <Group justify="flex-end" mt="xl">
                         <Button type="submit" size="md" disabled={isPending}>
