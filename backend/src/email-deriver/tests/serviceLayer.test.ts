@@ -13,19 +13,20 @@ describe('EmailDeriverService', () => {
   });
 
   it('should derive email with format first_name_last_name', async () => {
-    repository.getEmailFormat.mockReturnValue('first_name_last_name');
+    repository.getSampleData.mockReturnValue({fullName: 'Jay Arun', email: 'jayarun@linkedin.com'});
     const email = await emailDeriverService.getEmail('David Stein', 'google.com');
     expect(email).toBe('davidstein@google.com');
   });
 
   it('should derive email with format first_name_initial_last_name', async () => {
-    repository.getEmailFormat.mockReturnValue('first_name_initial_last_name');
+    repository.getSampleData.mockReturnValue({fullName: 'Jane Doe', email: 'jdoe@babbel.com'});
     const email = await emailDeriverService.getEmail('Marta Dahl', 'babbel.com');
     expect(email).toBe('mdahl@babbel.com');
   });
 
   it('should throw error if email format not found', async () => {
-    repository.getEmailFormat.mockReturnValue(null);
-    await expect(emailDeriverService.getEmail('John Smith', 'hahdahs.com')).rejects.toThrow('Email could not be derived');
+    repository.getSampleData.mockReturnValue(null);
+    const email = await emailDeriverService.getEmail('John Smith', 'hahdahs.com')
+    expect(email).toBe(null);
   });
 });

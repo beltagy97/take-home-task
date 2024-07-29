@@ -1,4 +1,4 @@
-import { generateEmailFirstNameInitialLastNameFormat, generateEmailFullNameFormat, isValidRequest } from "../utils";
+import { generateEmailFirstNameInitialLastNameFormat, generateEmailFullNameFormat, getEmailFormat, isValidRequest } from "../utils";
 
 describe('testing util functions', () => {
     it('validateRequest should return false', () => {
@@ -21,5 +21,13 @@ describe('testing util functions', () => {
     ])
     ('generateEmailFirstNameInitialLastNameFormat should return format firstInitialLastName@domain.com', ({firstName, lastName, domain, actual}) => {
         expect(generateEmailFirstNameInitialLastNameFormat(firstName, lastName, domain)).toBe(actual)
+    })
+
+    it('getEmailFormat should return first_name_last_name', () => {
+        expect(getEmailFormat({fullName:'Ahmad Beltagy', email: 'ahmadbeltagy@google.com'})).toBe('first_name_last_name');
+    })
+
+    it('getEmailFormat should return first_name_initial_last_name', () => {
+        expect(getEmailFormat({fullName:'Ahmad Beltagy', email: 'abeltagy@google.com'})).toBe('first_name_initial_last_name');
     })
 });
