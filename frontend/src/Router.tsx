@@ -6,6 +6,7 @@ import {
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import Layout from './shared/layout';
 import Guesser from './pages/guesser';
+import { NotFoundPage } from './pages/404-page';
 
 const layoutRoute = createRootRoute({
   component: () => (
@@ -26,8 +27,10 @@ const indexRoute = createRoute({
   },
 })
 
+
+
 const routeTree = layoutRoute.addChildren([indexRoute])
 
-const router = createRouter({ routeTree })
+const router = createRouter({ routeTree, defaultNotFoundComponent: NotFoundPage})
 
 export default router;
