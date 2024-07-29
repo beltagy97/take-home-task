@@ -8,12 +8,14 @@ class EmailDeriverService {
     this.repository = repository;
   }
 
-  async getEmail(fullName: string, domain: string): Promise<string> {
+  async getEmail(fullName: string, domain: string): Promise<string | null> {
     const [firstName, lastName] = fullName.split(' ');
     const emailFormat = this.repository.getEmailFormat(domain);
 
     if (!emailFormat) {
-      throw new Error('Email could not be derived');
+      // since we do not have this domain in our sample data, so we cannot guess it. We return null and
+      //  FE should be able to show meaningful message to user.
+      return null;
     }
 
     let derivedEmail = '';
