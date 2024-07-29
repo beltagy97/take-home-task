@@ -1,7 +1,7 @@
 {
   "name": "email-guesser-backend",
-  "version": "1.0.0",
-  "author": "Ahmad Beltagy",
+  "version": "0.0.1",
+  "author": "beltagy97",
   "license": "ISC",
   "description": "A tiny microservice to guess email of employee using one of defined emails in our data storage",
   "engines": {
