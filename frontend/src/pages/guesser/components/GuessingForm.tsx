@@ -32,7 +32,7 @@ export function GuessingForm() {
         },
         validate: {
             name: (value) => nameValidator(value) ? 'Please enter your full name ex. (Ahmad Beltagy)' : null,
-            domain: (value) => domainValidator(value) ? 'Please enter correct domain ex. (example.com' : null,
+            domain: (value) => domainValidator(value) ? 'Please enter correct domain ex. (example.com)' : null,
         },
     });
 
