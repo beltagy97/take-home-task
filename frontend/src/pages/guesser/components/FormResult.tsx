@@ -31,7 +31,7 @@ export function FormResult({ name, email, isPending, error }: Props) {
         return (
             <Alert variant="light" color="cyan">
                 <Center>
-                    <Text fw={500} ff={"monospace"}>{name}'s email could not be derived!  Please try another domain</Text>
+                    <Text fw={500} ff={"monospace"}>I am sorry, {name}'s email could not be derived!</Text>
 
                 </Center>
             </Alert>

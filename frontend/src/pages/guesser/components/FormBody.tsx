@@ -11,8 +11,8 @@ export function FormBody({ form }: Props) {
         <Grid mt="xl">
             <Grid.Col span={6}>
                 <TextInput
-                    label="Name"
-                    placeholder="Your name"
+                    label="Full Name"
+                    placeholder="Your full name"
                     name="name"
                     variant="filled"
                     {...form.getInputProps("name")}
